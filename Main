@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Cadena cadena = new Cadena();
+
+        System.out.println("Juan Garces Examen");
+        System.out.print("Ingrese el texto que desea verificar: ");
+        String cadenauser = sc.nextLine();
+
+        // Usamos los metodos de la clase
+        cadena.validaciones(cadenauser);
+        boolean simetria = cadena.palindromoOcapicua();
+
+        // Mostramos el resultado final
+        if (simetria) {
+            if (cadena.getesNumerico()) {
+                System.out.println("Su texto es Capicua");
+            } else {
+                System.out.println("Su texto es Palindromo");
+            }
+        } else {
+            System.out.println("Su texto no es palindromo ni capicua");
+        }
+    }
+}
+
+/* Analisis del BIG-O:
+ Complejidad: O(n)
+ Justificacion:
+ El metodo validaciones recorre la entrada n veces para limpiar espacios.
+ Para el metodo esNumero recorre la cadena limpia osea que recorre la cadena despues de haber
+ pasado por el metodo antes mencionado esto para verificar los dígitos.
+ En el metodo palindromoOcapicua para añadir elementos a las colas y la pilas recorre n caracteres.
+ Todos estos metodos qeu se implementaron son procesos lineales independientes
+ por lo que la complejidad final es O(n).
+ */
